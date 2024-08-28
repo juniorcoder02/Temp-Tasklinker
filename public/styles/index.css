@@ -1,0 +1,122 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  font-family: "Poppins", sans-serif;
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Welcome Container */
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Logo/Image Styling */
+.welcome-image {
+  max-width: 400px;
+  width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Text Styling */
+.welcome-text {
+  font-weight: 600; /* Using Poppins font weight */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: slideInFromLeft 2.5s ease-out;
+  color: #f39c12;
+}
+
+/* Button Styling */
+.start-button {
+  padding: 15px 30px;
+  font-family: "Karla", sans-serif; /* Button text uses Karla */
+  font-size: 1.2rem;
+  color: #f5f5f5;
+  background-color: #000;
+  border: 2px solid #f39c12; /* Adding a border for contrast */
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #f39c12;
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #121212;
+  color: #f5f5f5;
+  font-size: 1rem;
+}
+
+.footer-brand {
+  font-family: "Karla", sans-serif;
+  font-weight: bold;
+  color: #f39c12;
+  text-decoration: none;
+}
+
+.footer-brand:hover {
+  text-decoration: underline;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

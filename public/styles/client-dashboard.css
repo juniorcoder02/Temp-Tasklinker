@@ -1,0 +1,111 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    padding: 20px 0;
+    text-align: center;
+    background-color: #1f1f1f;
+    border-bottom: 3px solid #d4af37;
+}
+
+.header h1 {
+    margin: 0;
+    color: #d4af37;
+}
+
+.section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.section h2 {
+    margin-top: 0;
+    color: #d4af37;
+}
+
+.profile-details p {
+    margin: 8px 0;
+}
+
+.post-project {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.post-project button {
+    background-color: #d4af37;
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.post-project button:hover {
+    background-color: #b8871b;
+}
+
+.freelancers-list {
+    display: flex;
+    flex-direction: column; /* Ensure cards are stacked vertically */
+    gap: 20px;
+}
+
+.freelancer-card {
+    background-color: #2c2c2c;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between; /* Align items horizontally */
+    align-items: center;
+}
+
+.freelancer-card h3 {
+    color: #d4af37;
+}
+
+.freelancer-card p {
+    margin: 5px 0;
+}
+
+.freelancer-card a {
+    color: #ffffff; /* White portfolio link */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.freelancer-card a:hover {
+    color: #b8871b; /* Darker color on hover */
+}
+
+.freelancer-card button {
+    background-color: #d4af37;
+    color: #121212;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 20px; /* Add space between the button and the rest of the content */
+}
+
+.freelancer-card button:hover {
+    background-color: #b8871b;
+}
