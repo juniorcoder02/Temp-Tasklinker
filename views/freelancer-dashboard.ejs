@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Dashboard</title>
+    <link rel="stylesheet" href="../styles/freelancer-dashboard.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Poppins:wght@600&display=swap"
+        rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="container">
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#"><img src="../assests/logo.jpg" alt="Tasklinker Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#profile-section">Profile</a></li>
+                <li><a href="#projects-section">Projects</a></li>
+                <li><a href="/chat">Chat</a></li>
+                <li><a href="/logout-freelancer" class="logout-btn ">Logout</a></li>
+            </ul>
+        </nav>
+
+        <header class="header">
+            <h1>Welcome, <%= freelancer.fullName %>!</h1>
+            <p class="tagline">Ready to conquer the next challenge?</p>
+        </header>
+
+        <section id="profile-section" class="profile-section">
+            <h2>Your Profile</h2>
+            <p><strong>Email:</strong> <%= freelancer.email %></p>
+            <p><strong>Phone:</strong> <%= freelancer.phone %></p>
+            <p><strong>Skills:</strong> 
+                <% if (freelancer.skills && Array.isArray(freelancer.skills)) { %>
+                    <%= freelancer.skills.join(", ") %>
+                <% } else { %>
+                    No skills listed
+                <% } %>
+             </p>            <p><strong>Experience:</strong> <%= freelancer.experience %> years</p>
+            <p><strong>Availability:</strong> <%= freelancer.availability %></p>
+            <p><strong>Portfolio:</strong> <a href="<%= freelancer.portfolio %>" target="_blank">View Portfolio</a></p>
+        </section>
+
+        <section id="projects-section" class="projects-section">
+            <h2>Matching Projects</h2>
+            <% if (projects.length > 0) { %>
+                <ul class="projects-list">
+                    <% projects.forEach(project => { %>
+                        <li class="project-item">
+                            <h3><%= project.title %></h3>
+                            <p><strong>Description:</strong> <%= project.description %></p>
+                            <p><strong>Required Skills:</strong> <%= project.requiredSkills.join(", ") %></p>
+                            <p><strong>Budget:</strong> $<%= project.budget %></p>
+                            <p><strong>Deadline:</strong> <%= project.deadline.toDateString() %></p>
+                            <p><strong>Contact:</strong> <%= project.client.email %>, <%= project.client.phone %></p>
+                            <a href="mailto:<%= project.client.email %>?subject=Interested in your project <%= project.title %>" class="contact-btn">Contact Client</a>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p>No projects match your skills at the moment. Check back later!</p>
+            <% } %>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Tasklinker. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

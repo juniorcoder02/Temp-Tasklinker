@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Signup/Login</title>
+    <link rel="stylesheet" href="/styles/signup-freelancer.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Poppins:wght@600&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+    <div class="signup-container">
+        <!-- Client Signup Form -->
+        <div class="signup-section">
+            <h2>Join TaskLinker as a Client</h2>
+            <form action="/signup-client" method="POST">
+                <div class="row">
+                    <div class="input-group">
+                        <label for="company-name">Company Name</label>
+                        <input type="text" id="company-name" name="companyName" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="contact-person">Contact Person</label>
+                        <input type="text" id="contact-person" name="contactPerson" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label for="company-size">Company Size</label>
+                        <input type="text" id="company-size" name="companySize" placeholder="e.g. 10-50 employees" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="industry">Industry</label>
+                        <input type="text" id="industry" name="industry" placeholder="e.g. IT, Finance" required>
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="website">Company Website</label>
+                    <input type="url" id="website" name="website" placeholder="https://yourcompanywebsite.com" required>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+              
+
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+        </div>
+        
+        <!-- Client Login Form -->
+        <div class="login-section">
+            <h2>Already have an account? Log In</h2>
+            <form action="/login-client" method="POST">
+                <div class="row">
+                    <div class="input-group full-width">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group full-width">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="signup-btn">Log In</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

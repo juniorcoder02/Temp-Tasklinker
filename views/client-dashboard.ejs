@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Dashboard</title>
+    <link rel="stylesheet" href="../styles/client-dashboard.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="logo">
+          <a href="#"
+            ><img src="../assests/logo.jpg" alt="Tasklinker Logo"
+          /></a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#profile-section">Profile</a></li>
+          <li><a href="#post-project-section">Post a Project</a></li>
+          <li><a href="#freelancers-section">Find Freelancers</a></li>
+          <li><a href="/chat">Chat</a></li>
+          <li><a href="/logout-client" class="logout-btn">Logout</a></li>
+        </ul>
+      </nav>
+
+      <!-- Profile Section -->
+      <section id="profile-section" class="profile-section">
+        <h2>Client Profile</h2>
+        <div class="profile-card">
+          <div class="profile-details">
+            <p><strong>Company Name:</strong> <%= client.companyName %></p>
+            <p><strong>Contact Person:</strong> <%= client.contactPerson %></p>
+            <p><strong>Email:</strong> <%= client.email %></p>
+            <p><strong>Phone:</strong> <%= client.phone %></p>
+            <p><strong>Industry:</strong> <%= client.industry %></p>
+            <p>
+              <strong>Website:</strong>
+              <a href="<%= client.website %>" target="_blank"
+                ><%= client.website %></a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Post a Project Section -->
+      <section id="post-project-section" class="post-project-section">
+        <h2>Post a New Project</h2>
+        <div class="post-project-card">
+          <form action="/post-project" method="POST" id="project-form">
+            <div class="input-group full-width">
+              <label for="title">Project Title</label>
+              <input type="text" id="title" name="title" required />
+            </div>
+
+            <div class="input-group full-width">
+              <label for="description">Project Description</label>
+              <input
+                id="description"
+                name="description"
+                rows="4"
+                required
+              />
+            </div>
+
+            <div class="input-group full-width">
+              <label for="requiredSkills">Required Skills</label>
+              <input
+                type="text"
+                id="requiredSkills"
+                name="requiredSkills"
+                placeholder="e.g. JavaScript, Node.js"
+                required
+              />
+            </div>
+
+            <div class="row">
+              <div class="input-group">
+                <label for="clientName">Client Name</label>
+                <input type="text" id="clientName" name="client[name]" required />
+              </div>
+              <div class="input-group">
+                <label for="clientEmail">Client Email</label>
+                <input
+                  type="email"
+                  id="clientEmail"
+                  name="client[email]"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-group">
+                <label for="clientPhone">Client Phone</label>
+                <input
+                  type="tel"
+                  id="clientPhone"
+                  name="client[phone]"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="budget">Project Budget</label>
+                <input type="number" id="budget" name="budget" required />
+              </div>
+            </div>
+
+            <div class="input-group full-width">
+              <label for="deadline">Project Deadline</label>
+              <input type="date" id="deadline" name="deadline" required />
+            </div>
+
+            <button type="submit" class="submit-btn">Post Project</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Find Freelancers Section -->
+      <section id="freelancers-section" class="freelancers-section">
+        <h2>Available Freelancers</h2>
+        <div class="freelancers-grid">
+          <% freelancers.forEach(freelancer => { %>
+          <div class="freelancer-card">
+            <div class="card-header">
+              <h3><%= freelancer.fullName %></h3>
+              <button
+                class="hire-btn"
+                onclick="location.href='/hire/<%= freelancer._id %>'"
+              >
+                Hire
+              </button>
+            </div>
+            <div class="card-body">
+              <p><strong>Email:</strong> <%= freelancer.email %></p>
+              <p><strong>Phone:</strong> <%= freelancer.phone %></p>
+              <p>
+                <strong>Skills:</strong> <%= freelancer.skills.join(", ") %>
+              </p>
+              <p>
+                <strong>Experience:</strong> <%= freelancer.experience %> years
+              </p>
+              <p>
+                <strong>Availability:</strong> <%= freelancer.availability %>
+              </p>
+              <p>
+                <strong>Portfolio:</strong>
+                <a href="<%= freelancer.portfolio %>" target="_blank"
+                  >View Portfolio</a
+                >
+              </p>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2024 Tasklinker. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

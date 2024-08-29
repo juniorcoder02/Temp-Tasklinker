@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post a Project</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Poppins:wght@600&display=swap"
+    rel="stylesheet"
+  />
+    <link rel="stylesheet" href="/styles/signup-freelancer.css" />
+  </head>
+  <body>
+    <div class="signup-container">
+      <h2>Post a New Project</h2>
+
+      <form action="/post-project" method="POST" id="project-form">
+        <div class="input-group full-width">
+          <label for="title">Project Title</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+
+        <div class="input-group full-width">
+          <label for="description">Project Description</label>
+          <input id="description" name="description" required />
+        </div>
+
+        <div class="input-group full-width">
+          <label for="requiredSkills">Required Skills</label>
+          <input
+            type="text"
+            id="requiredSkills"
+            name="requiredSkills"
+            placeholder="e.g. JavaScript, Node.js"
+            required
+          />
+        </div>
+
+        <div class="input-group full-width">
+          <label for="clientName">Client Name</label>
+          <input type="text" id="clientName" name="client[name]" required />
+        </div>
+        <div class="row">
+          <div class="input-group">
+            <label for="clientEmail">Client Email</label>
+            <input
+              type="email"
+              id="clientEmail"
+              name="client[email]"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="clientPhone">Client Phone</label>
+            <input type="tel" id="clientPhone" name="client[phone]" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group full-width">
+            <label for="budget">Project Budget</label>
+            <input type="number" id="budget" name="budget" required />
+          </div>
+
+          <div class="input-group full-width">
+            <label for="deadline">Project Deadline</label>
+            <input type="date" id="deadline" name="deadline" required />
+          </div>
+        </div>
+
+        <button type="submit" class="signup-btn">Post Project</button>
+      </form>
+    </div>
+  </body>
+</html>
