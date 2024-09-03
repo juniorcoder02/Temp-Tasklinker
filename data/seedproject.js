@@ -32,7 +32,67 @@ const projects = [
       phone: "098-765-4321"
     },
     budget: 6000,
-    deadline: new Date("2024-11-15")
+    deadline: new Date("2024-11-17")
+  },
+  {
+    title: "User Searcher",
+    description: "Create a web app to search for users.",
+    requiredSkills: ["React", "JavaScript", "API Integration"],
+    client: {
+      name: "user search.",
+      email: "support@usersearch.com",
+      phone: "021-235-4564"
+    },
+    budget: 12000,
+    deadline: new Date("2024-10-15")
+  },
+  {
+    title: "web application to find menu for canteen",
+    description: "Create a web app that finds a new menu for canteen.",
+    requiredSkills: ["React", "JavaScript", "API Integration" , "MongoDB"],
+    client: {
+      name: "Menumaker Inc.",
+      email: "support@menumaker.com",
+      phone: "023-545-2121"
+    },
+    budget: 23000,
+    deadline: new Date("2024-11-31")
+  },
+  {
+    title: "mobile app to find cafe",
+    description: "Create a mobile app to find cafe near by you.",
+    requiredSkills: ["Kotlin", "JavaScript", "API Integration"],
+    client: {
+      name: "cafefinder Inc.",
+      email: "support@cafefinder.com",
+      phone: "098-765-4321"
+    },
+    budget: 7000,
+    deadline: new Date("2024-09-12")
+  },
+  {
+    title: "Mobile App for workout",
+    description: "Create a mobile app that create and track your workout schedule.",
+    requiredSkills: ["React Native", "Kotlin", "Go" , "API Integration"],
+    client: {
+      name: "workoutTracker Inc.",
+      email: "support@workouttracker.com",
+      phone: "021-787-4321"
+    },
+    budget: 16000,
+    deadline: new Date("2024-11-21")
+  },
+  {
+    title: "Weather App",
+    description: "Create a mobile app to find weather related data for your location.",
+    requiredSkills: ["Java", "Kotlin", "API Integration" ,],
+    client: {
+      name: "weather Inc.",
+      email: "support@weather.com",
+      phone: "032-345-5421"
+    },
+    budget: 12000,
+    deadline: new Date("2024-11-21")
   },
   {
     title: "SEO Optimization for Website",

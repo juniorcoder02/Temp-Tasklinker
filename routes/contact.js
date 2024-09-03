@@ -37,6 +37,7 @@ router.post("/contact", (req, res) => {
       return res.status(500).send("Error sending email.");
     }
     res.render("contact-success", { name });  });
+    
 });
 
 module.exports = router;

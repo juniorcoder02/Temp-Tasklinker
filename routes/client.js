@@ -44,7 +44,7 @@ router.post("/signup-client", async (req, res) => {
 
     req.session.user = newClient; // Store user in session
     req.session.message = "Signup successful as a client!";
-    res.redirect("/login-client");
+    res.redirect("/success-client");
   } catch (error) {
     console.error("Error during signup:", error);
     res.status(500).json({ error: "Internal server error" });
@@ -77,8 +77,11 @@ router.post("/login-client", async (req, res) => {
     // Fetch freelancers from the database
     const freelancers = await Freelancer.find({}); // Fetch all freelancers (you can add filters if needed)
 
+    // Fetch projects for the logged-in client
+    const projects = await Project.find({ "client.email": client.email }); // Adjust as necessary
+
     // Use res.render to render the client-dashboard view directly
-    res.render("client-dashboard", { client, freelancers });
+    res.render("client-dashboard", { client, freelancers, projects });
     console.log(req.session.user.email);
   } catch (error) {
     console.error("Error during login:", error);
@@ -97,17 +100,15 @@ router.get("/client-dashboard", async (req, res) => {
     // Fetch freelancers from the database
     const freelancers = await Freelancer.find({}); // Fetch all freelancers (you can add filters if needed)
 
-    res.render("client-dashboard", { client, freelancers });
+    // Fetch projects for the logged-in client
+    const projects = await Project.find({ "client.email": client.email }); // Adjust as necessary
+
+    res.render("client-dashboard", { client, freelancers, projects });
   } catch (error) {
     console.error("Error fetching dashboard data:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
-
-
-
-// GET request to render the project form
-
 
 // POST request to handle project form submission
 router.post("/post-project", async (req, res) => {
@@ -126,14 +127,35 @@ router.post("/post-project", async (req, res) => {
     await newProject.save();
 
     req.session.message = "Project posted successfully!";
-    res.redirect("/client-dashboard"); // Redirect to the client's dashboard
+    res.redirect("/project-success"); // Redirect to the client's dashboard
   } catch (error) {
     console.error("Error posting project:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
 
-//logout route
+// GET request to show the client's posted projects
+router.get('/posted-projects', async (req, res) => {
+  try {
+      const client = req.session.user;
+      if (!client) {
+        return res.redirect("/login-client");
+      }
+
+      const projects = await Project.find({ "client.email": client.email }); // Fetch projects for the logged-in client
+
+      // Fetch freelancers from the database
+      const freelancers = await Freelancer.find({}); // Fetch all freelancers (you can add filters if needed)
+
+      // Ensure `projects` is being passed to the view
+      res.render('client-dashboard', { client, freelancers, projects }); 
+  } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+  }
+});
+
+// Logout route
 router.get("/logout-client", (req, res) => {
   req.session.destroy();
   res.redirect("/landing-page");

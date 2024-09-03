@@ -43,7 +43,7 @@ app.set("view engine", "ejs");
 
 // Security and logging middleware
 app.use(helmet());
-// app.use(morgan("combined"));
+app.use(morgan("combined"));
 
 // Static files middleware
 app.use(express.static(path.join(__dirname, "public")));
@@ -71,6 +71,17 @@ app.get("/about-us", (req, res) => {
   res.render("about-us");
 });
 
+app.get("/success-client",(req,res)=>{
+  res.render("success-client");
+})
+
+app.get("/success-freelancer",(req,res)=>{
+  res.render("success-freelancer");
+})
+
+app.get("/project-success",(req,res)=>{
+  res.render("project-success");
+})
 app.get("/terms-service",(req,res)=>{
   res.render("terms-service");
 })

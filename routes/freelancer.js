@@ -43,7 +43,7 @@ router.post("/signup-freelancer", async (req, res) => {
 
     req.session.user = newFreelancer; // Store user in session
     req.session.message = "Signup successful!";
-    res.redirect("/login-freelancer");
+    res.redirect("/success-freelancer");
   } catch (error) {
     console.error("Error during signup:", error);
     res.status(500).json({ error: "Internal server error" });
